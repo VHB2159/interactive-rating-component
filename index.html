@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <div class="Main_Container">
+    <div class="Img_Circle">
+      <svg width="17" height="16" xmlns="http://www.w3.org/2000/svg"><path d="m9.067.43 1.99 4.031c.112.228.33.386.58.422l4.45.647a.772.772 0 0 1 .427 1.316l-3.22 3.138a.773.773 0 0 0-.222.683l.76 4.431a.772.772 0 0 1-1.12.813l-3.98-2.092a.773.773 0 0 0-.718 0l-3.98 2.092a.772.772 0 0 1-1.119-.813l.76-4.431a.77.77 0 0 0-.222-.683L.233 6.846A.772.772 0 0 1 .661 5.53l4.449-.647a.772.772 0 0 0 .58-.422L7.68.43a.774.774 0 0 1 1.387 0Z" fill="#FC7614"/></svg>
+    </div>    
+  <H1>How did we do?</H1>          
+  <p>Please let us know how we did with your support request.<br>
+    All feedback is appreciated to help us improve our offering!
+  </p>  
+  <div class="Main_Grading">
+    <div class="Grade">1</div>
+    <div class="Grade">2</div>
+    <div class="Grade">3</div>
+    <div class="Grade">4</div>
+    <div class="Grade">5</div>
+  </div>
+  <div class="Submitt_Btn">Submit</div>
+</div>
+<style>
+   html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%; /* Ensure body takes up full height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   }
+  .Main_Container {
+    background-color: hsl(213, 19%, 18%);
+    width: 500px;
+    height: 450px;
+    border-radius: 25px;
+  }
+.Img_Circle {
+  background-color: hsl(213, 25%, 25%);
+  width: 35px;
+  height: 35px;
+  border-radius: 35px;
+  position: absolute;
+  margin-top: 25px;
+  margin-left: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+H1 {
+  color: hsl(0, 0%, 100%);
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  position: absolute;
+  margin-top: 85px;
+  margin-left: 25px;
+
+}
+
+p {
+  color: hsl(217, 12%, 63%);
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  position: absolute;
+  margin-top: 135px;
+  margin-left: 25px;
+}
+
+.Main_Grading {
+  width: 500px;
+  height: 80px;
+  margin-top: 200px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.Grade {
+  background-color: hsl(213, 25%, 25%);
+  width: 65px;
+  height: 65px;
+  border-radius: 65px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: hsl(217, 12%, 63%)
+}
+.Grade:hover {
+  background-color: white; /* Change text color to match the initial background */
+  color: black;
+  font-weight: bold; /* Make text bold */
+  cursor: pointer;
+}
+.Grade.active {
+  background-color: orange; /* Background color for active state */
+  color: black; /* Text color for active state */
+  font-weight: bold; /* Keep text bold */
+        }
+.Submitt_Btn {
+  background-color: hsl(25, 97%, 53%);
+  width: 350px;
+  height: 65px;
+  margin-top: 45px;
+  margin-left: 75px;
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: hsl(213, 25%, 25%);
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: bolder;
+}
+.Submitt_Btn:hover {
+  background-color: white; /* Background color for active state */
+  color: black; /* Text color for active state */
+  font-weight: bold; /* Keep text bold */
+  cursor: pointer;
+}
+
+</style>
+<script>
+$(document).ready(function() {
+    // Use toggleClass to add/remove the active class on click
+    $('.Grade').click(function() {
+        // Remove active class from all elements except the one being clicked
+        $('.Grade').not(this).removeClass('active');
+        // Toggle active class on the clicked element
+        $(this).toggleClass('active');
+
+        // Save the selected grade to local storage
+        if ($(this).hasClass('active')) {
+            var selectedGrade = $(this).text(); // Get the text content of the clicked element
+            localStorage.setItem('selectedGrade', selectedGrade); // Store it in local storage
+        } else {
+            localStorage.removeItem('selectedGrade'); // Remove from local storage if deselected
+        }
+    });
+});
+$('.Submitt_Btn').click(function() {
+                window.location.href = 'submission.html'; // Redirect to submission.html
+            });
+</script>
+</html>

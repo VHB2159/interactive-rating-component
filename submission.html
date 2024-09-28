@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="Main_Container">
+        <img class="img" src="images/illustration-thank-you.svg" alt="">
+        <div class="message"></div>
+        <h1>Thank you!</h1>
+        <p>We appeciate you taking the time to give a rating.<br>
+        If you ever need more support, don't hesitate to<br>get in touch!     
+        </p>
+    </div>     
+<style>
+     html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%; /* Ensure body takes up full height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ 
+} 
+
+.Main_Container {
+    background-color: hsl(213, 19%, 18%);
+    width: 500px;
+    height: 450px;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px; /* This will ensure a consistent gap between child elements */
+    align-items: center;
+}
+
+.img {
+    width: 200px;
+    margin: 0; /* Ensure no margin affects spacing */
+    margin-top: 35px;
+}
+
+.message {
+    background-color: hsl(213, 25%, 25%);
+    width: 250px;
+    border-radius: 25px;
+    color: orange;
+    word-spacing: 0.5px; /* Adjust word spacing as needed */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0; /* Ensure no margin affects spacing */
+}
+
+h1, p {
+    margin: 0; /* Reset margins for consistent spacing */
+    color: white;
+}
+
+</style>
+<script>
+    // Retrieve the selected grade from local storage
+    var selectedGrade = localStorage.getItem('selectedGrade');
+
+    // Display the selected grade in the message div
+    if (selectedGrade) {
+        document.querySelector('.message').innerText = 'You selected ' + selectedGrade + ' out of 5';
+    } else {
+        document.querySelector('.message').innerText = 'No grade selected.';
+    }
+</script>  
+    
+</body>
+</html>
